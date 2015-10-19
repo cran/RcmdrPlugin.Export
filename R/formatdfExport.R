@@ -1,4 +1,8 @@
 ## adapted from Rcmdr utilities.R
+
+##FIXME CRAN checks: 
+##listMatrixObjects: possible error in ls(envir = envir, ...): ... used
+##in a situation where it does not exist
 listMatrixObjects <- function(envir=.GlobalEnv, ...){
     objects <- ls(envir=envir, ...)
     if (length(objects) == 0) NULL
@@ -46,7 +50,6 @@ formatdfExport <- function(){
     math.colCheckBox <- tkcheckbutton(optionsFrame, variable=math.colVariable)
     slashVariable <- tclVar("0")
     slashCheckBox <- tkcheckbutton(optionsFrame, variable=slashVariable)
-    require("Hmisc")
     onOK <- function(){
         objectName <- getSelection(framesMatricesBox)
         dec <- paste(tclvalue(decInput))
